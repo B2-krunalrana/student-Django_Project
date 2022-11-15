@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block title %}One{% endblock title %}
+
+{% comment %} {% block tabledata2 %}
+    {% if data.per > 60 %}
+    {% endif %}
+{% endblock tabledata2 %} {% endcomment %}
+
+{% block tabledata2 %}
+{% for data in filter_student %}
+        <tr>            
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.yop}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.skill}}</td>
+            <td>{{data.per}}</td>
+            <td>{{data.ret}}</td>
+        </tr>
+        {% comment %} <h1>data :{{  }}</h1> {% endcomment %}
+{% endfor %}
+{% endblock tabledata2 %}
+
+{% block but %}
+<div class="container_but" style="text-align: center;">  
+    {% block but_con %}
+        <a href="/" style="text-decoration: none;">
+            <button class="but">  Main Data   </button>
+        </a> 
+    {% endblock but_con %}
+    </div>
+{% endblock but %}
+
+{% block more_co %}
+
+<form method="post" action="/filter/">
+    {% csrf_token %}
+<div class="container_but" style="text-align: center;">    
+    <button  class="but" type="submit" name="py_but" value="Py_students" >  Py_students  </button>
+</div>
+<div class="container_but" style="text-align: center;">  
+    <a href="/filter" style="text-decoration: none;" >
+        <button class="but" name="j_but" value="j_students">  J_students  </button>
+    </a> 
+</div>
+</form>
+
+{% comment %} <form action="filter">    {% endcomment %}
+    {% comment %} <form action="">
+        <input type="submit" value="py_student">
+    </form> {% endcomment %}
+    {% comment %} </form> {% endcomment %}
+    {% comment %} <button type="submit" name="py_but" class="but" value="Py_students" /> Py_student</button> {% endcomment %}
+    
+    {% comment %} </a> {% endcomment %}
+
+
+
+{% endblock more_co %}

@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}filter{% endblock title %}
+
+{% block h1 %}{{l}}{% endblock h1 %}
+
+
+{% block tabledata2 %}
+{% comment %} {% for data in j_student.j_filter_student %} {% endcomment %}
+{% for data in fi_student %}
+        <tr>  
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.yop}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.skill}}</td>
+            <td>{{data.per}}</td>
+            <td>{{data.ret}}</td>
+        </tr>        
+{% endfor %}
+{% endblock tabledata2 %}

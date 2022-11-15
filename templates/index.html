@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'style/main.css' %}">
+    <link rel="stylesheet" href="{% static 'style/table.css' %}">
+    
+    <title> {% block title %}Home{% endblock title %} | PY J Student </title>
+
+
+</head>
+<body>
+    <div>
+        <span class="top right"></span>
+        <span class="top left"></span>
+        <h2>&lt; {% block h1 %}Py_spider | J Spider {% endblock h1 %}  &gt;</h2>
+        <h2>Database</h2>
+        <span class="bottom right"></span>
+        <span class="bottom left"></span>
+    </div>
+    <hr>
+    <h4>Address: <br>Sir Puttanna Chetty Complex, <br>No. 13 & 14, 1st floor, Bull Temple Rd, Basavanagudi, Bengaluru, Karnataka 560004</h4>
+    <hr>
+    
+    {% block table1 %}
+    <table border="1" >
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Year Of Passout</th>
+            <th>Email</th>
+            <th>Skill</th>
+            <th>Percentage</th>
+            <th>Mock-Rating</th>
+        </tr>
+        {% comment %} {% block tabledata %} {% endcomment %}
+        {% block tabledata2 %}
+        {% for data in sdata %}
+        <tr>            
+                    {% comment %} {% if data.per > 60 %} {% endcomment %}
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.yop}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.skill}}</td>
+            <td>{{data.per}}</td>
+            <td>{{data.ret}}</td>
+                    {% comment %} {% endif %} {% endcomment %}
+        </tr>
+        {% endfor %}
+        {% endblock tabledata2 %}
+                    {% comment %} {% endblock tabledata %} {% endcomment %}
+    </table>
+    {% endblock table1 %}    
+    {% block pr_button %}
+
+    {% comment %} {% block but %} {% endcomment %}
+    <div class="container_but" style="text-align: center;">  
+        {% block but_con %}<a href="/one" style="text-decoration: none;">
+        <button class="but">  Priority </button>
+    </a>{% endblock but_con %}
+    </div>
+    {% comment %} {% endblock but %} {% endcomment %}
+    
+    {% endblock pr_button %}
+    {% block more_co %}
+    
+    {% endblock more_co %}
+
+
+
+
+</body>
+</html>
